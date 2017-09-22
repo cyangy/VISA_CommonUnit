@@ -1,0 +1,51 @@
+#########################严格按照格式书写,如果没有说明内容 也可写为 !1/2/3  expr  的形式，但!1/2/3必须顶格写 
+#ControlCommand#
+#########################
+#ControlCommand标识			 命令内容								           命令是否有返回信息(是:1,否0)	
+!1		*IDN?		#		1		#		询问仪器名称、版本等信息
+!1		*RST		#		0		#		重置设置为默认值
+!1		*TST?		#		0		#		仪器自检
+!1		SYSTem:ERRor?		#		1		#		询问当前错误信息
+!1		*CLS		#		0		#		清除错误
+!1		*CLS;:READ?		#		1		#		读取当前值
+!1		*CLS;:MEASure:VOLTage:DC?   1E-1,1E-7		#		1		#		指定在100mv(0.1,1E-1  V),分辨率为(0.0000001,1E-7 ) (6位半)测量直流电压\n 该方式不具有灵活性,建议使用CONF:VOLT:DC 1E-1, 1E-7 ; :TRIG:SOUR BUS| IMMediate | EXTernal ; : READ? \n 或  CONF:VOLT:DC 1E-1, 1E-7  ; :TRIG:SOUR BUS | IMMediate | EXTernal   ; : INIT ;  :FETC?   \n 这两种方式
+!1		*CLS;:CONFigure:VOLTage:DC 1E-1, 1E-7  ;  :TRIG:SOURce IMMediate ;:READ?		#		1		#		指定在100mV量程,6位半测量直流电压,\n触发方式为立即执行
+!1		*CLS;:CONFigure:VOLTage:DC 1E-2, 1E-7  ; :TRIG:SOURce IMMediate   ; :INIT ;  :FETC? 		#		1		#		指定在10mV量程,6位半测量交流电压(AC模式设置分辨率仅仅改变前面板显示,数据始终以6位半模式储存),\n触发方式为立即执行
+!1		*CLS;:CONFigure:CURRent:AC 1E-3, 1E-6   ; :TRIG:SOURce IMMediate   ; :INIT ;  :FETC? 		#		1		#		指定在1mA量程,5位半测量交流电流(AC电流最多支持5未半),\n触发方式为立即执行
+!1		*CLS;:CONFigure:RESistance  ; :TRIG:SOURce IMMediate   ; :INIT ;  :FETC? 		#		1		#		双线测量电阻,测量电阻不要指定量程和分辨率
+!1		*CLS;:CONFigure:FRESistance  ; :TRIG:SOURce IMMediate   ; :INIT ;  :FETC? 		#		1		#		四线测量电阻,测量电阻不要指定量程和分辨率
+!1		*CLS;:SENSe:DETector:BANDwidth?		#		1		#		询问当前 AC 滤波器频率
+!1		*CLS;:SENSe:DETector:BANDwidth  20		#		0		#		设置当前 AC 滤波器频率 只有 3 ,20 ,200 可选，值越低，速度越慢
+!1		*CLS;:CONFigure:CONTinuity  ; :TRIG:SOURce IMMediate   ; :INIT ;  :FETC? 		#		1		#		开路测试
+!1		*CLS;:CONFigure:DIODe  ; :TRIG:SOURce IMMediate   ; :INIT ;  :FETC? 		#		1		#		二极管测试
+!1		*CLS;:SENSe:FUNCtion "VOLTage:DC"		#		0		#		使用直流电压测量功能
+!1		*CLS;:SENSe:FUNCtion "CURRent:AC"		#		0		#		使用交流电流测量功能
+!1		*CLS;:SENSe:FUNCtion?		#		1		#		当前使用的功能
+!1		*CLS;:SENSe:FUNCtion "PERiod"		#		0		#		周期测量功能
+!1		*CLS;:SENSe:FUNCtion "FREQuency"		#		0		#		频率测量功能
+!1		*CLS;:SENSe:FUNCtion "VOLTage:DC:RATio"		#		0		#		DC信号电压与参考电压比率
+!1		*CLS;:DISPlay OFF		#		0		#		关闭仪器面板显示
+!1		*CLS;:DISPlay ON		#		0		#		开启仪器面板显示
+!1		*CLS;:DISPlay?		#		1		#		询问当前仪器屏幕是否开启
+!1		*CLS;:DISPlay:TEXT    "HelloAgilent"		#		0		#		将字符串  "HelloAgilent"  显示到仪器屏幕显示
+!1		*CLS;:DISPlay:TEXT:CLEar		#		0		#		清除屏幕显示的文字
+!1		*CLS;:DISPlay:TEXT? 		#		1		#		 询问当前仪器屏幕上显示的内容
+!1		*CLS;:SYSTem:BEEPer		#		0		#		让仪器发出一声蜂鸣
+!1		*CLS;:SYSTem:BEEPer:STATe  ON		#		0		#		开启仪器蜂鸣
+!1		*CLS;:SYSTem:BEEPer:STATe?		#		1		#		询问当前蜂鸣器状态
+
+			
+
+##ReltiveRegexExpression##
+#########################与正则表达式相关命令  每行以 一个感叹号加2(!2)顶格开始 接空格或Tab 后面是正则表达式  接着是空格或Tab 然后一个 # 空格或tab分割后是前面表达式的说明
+#标识               正则表达式																		前面命令的说明
+!2		([A-Za-z]{7}-)|([0-9]{5})|([0-9])						#			取出7个字母加\n一个减号-的部分 \n接着往后 取出一个5位数 最后取出 一位数
+
+###ReltiveGNUCoreutilsExpression###
+#########################与 GNUCoreutils 相关命令 每行以 一个感叹号加3(!3)顶格开始 接空格或Tab 后面是GNUCoreutils命令  接着是空格或Tab 然后一个 # 空格或tab分割后是前面表达式的说明
+!3		awk -F, "{print $1 \"  \" $2}"		#		取出以逗号","为分割符的第一列 第二列，第一列和第二列之间用空格分隔				
+!3		awk -F, "{print $1 \"  \" $3}" | rev		#		取出以逗号","为分割符的第一列 第二列，第一列和第二列之间用空格分隔，最后把字符串反过来				
+!3		tr "[A-Z]" "[a-z}"		#		转换所有大写字母为小写				
+!3		tr  [:lower:]  [:upper:] 		#		转换所有小写字母为大写				
+!3		tr [:upper:] [:lower:]  |  sed -e "s/\b\(.\)/\u\1/g"		#		只大写单词的第一个字母,其它所有字母小写				
+!3		tr [:upper:] [:lower:]  |  sed -e "s/\b\(.\)/\u\1/g" | sed  "s@[^a-zA-Z][a-z][^a-zA-Z]@\U&@g" 		#		只大写单词的第一个字母,但是单个字母的全部大写

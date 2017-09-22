@@ -1,0 +1,27 @@
+#########################严格按照格式书写,如果没有说明内容 也可写为 !1/2/3  expr  的形式，但!1/2/3必须顶格写 
+#ControlCommand#
+#########################
+#ControlCommand标识			 命令内容								           命令是否有返回信息(是:1,否0)	
+!1							MEASure:VOLTage:DC?	rANGE	1 yu 3			#					1					#			测量直流电压，可读取
+!1							MEASure:VOLTage:DC?	{rANGE	2, yu 3}			#					1					#			测量直流电压，可读取
+!1							MEASure:VOLTage:DC?3							#					1					#			测量直流电压，可读取
+!1							MEASure:VOLTage:DC?4							#					0					#			测量直流电压，可读取
+!1							MEASure:VOLTage:DC?5							#					1					#
+!1							MEASure:VOLTage:DC?6							#										
+!1							MEASure:VOLTage:AC?7							#					0
+!1							MEASure:VOLTage:DC?8	
+!1							MEASure:VOLTage:DC?9						
+
+##ReltiveRegexExpression##
+#########################与正则表达式相关命令  每行以 一个感叹号加2(!2)顶格开始 接空格或Tab 后面是正则表达式  接着是空格或Tab 然后一个 # 空格或tab分割后是前面表达式的说明
+#标识               正则表达式																		前面命令的说明
+!2	1	([A-Za-z]{7}-)|([0-9]{5})|([0-9])						#			取出7个字母加\n一个减号-的部分 \n接着往后 取出一个5位数 最后取出 一位数
+!2	2	([A-Za-z]{7}-)|([0-9]{5})|([0-9])						#
+!2	3	([A-Za-z]{7}-)|([0-9]{5})|([0-9])						#
+
+###ReltiveGNUCoreutilsExpression###
+#########################与 GNUCoreutils 相关命令 每行以 一个感叹号加3(!3)顶格开始 接空格或Tab 后面是GNUCoreutils命令  接着是空格或Tab 然后一个 # 空格或tab分割后是前面表达式的说明
+!3	1	awk -F, "{print $1 \" \" $2}"						#			取出以逗号","为分割符的第一列 第二列，第一列和第二列之间用空格分隔
+!3	2	awk -F, "{print $1 \" \" $2}" | rev					#			取出以逗号","为分割符的第一列 第二列，第一列和第二列之间用空格分隔，最后把字符串反过来
+!3	3	awk -F, "{print $1 \" \" $2}" | rev
+!3  4   awk -F, "{print $1 \" \" $2 \" \" $3  \" \" $4}" | tr "[:upper:]" "[:lower:]" | tr "^h" "H" | tr "\-p" "\-P" | sed "s@34401a@34401A@g"

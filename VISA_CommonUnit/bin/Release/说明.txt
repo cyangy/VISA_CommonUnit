@@ -1,0 +1,2 @@
+GNUCoreutils 中的内容是 Gow  https://github.com/bmatzelle/gow/releases 和  util-linux-ng 的合并 http://gnuwin32.sourceforge.net 还加上 libiconv https://sourceforge.net/projects/gnuwin32/files/libiconv/1.9.2-1/
+ControlSet   中包含各仪器控制命令和可用的格式化表达式,可以自己按照Template.commandset.template手动添加各仪器的命令集,程序启动时会在该目录下自动搜索后缀名为commandset的文件添加到程序的选项中去
