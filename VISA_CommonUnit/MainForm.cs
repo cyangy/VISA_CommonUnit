@@ -720,6 +720,7 @@ namespace VISA_CommonUnit
                 {
                     //this.Session_CurrentSelectDevice_textBox.Text = GlobalVars.selectedDeviceName; //更新选定的设备到指示框
                     mbSession = (MessageBasedSession)ResourceManager.GetLocalManager().Open(GlobalVars.selectedDeviceName); //打开设备
+                    mbSession.Timeout = GlobalVars.time_out; //设置超时 
                     GlobalVars.selectedAndConnectedInstrumentName=null;//清空已连接设备记录
                     GlobalVars.isSessionOpened = true;
                     Session_CurrentSelectDevice_textBox.Text = GlobalVars.selectedDeviceName;
@@ -1543,6 +1544,10 @@ namespace VISA_CommonUnit
             SelectComboBoxTextLast();  //不要全部选中Combox的内容 (ComboBox 光标移动到最后去)
         }
 
+        private void Session_CurrentSelectDevice_textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public static class GlobalVars
@@ -1554,6 +1559,7 @@ namespace VISA_CommonUnit
 
         public static String theCommandForQueryInstrumentsInfomation = null; // 询问仪器信息的命令
         public static String selectedDeviceName = null;//设备名
+        public static Int32 time_out = 50000;
         public static String selectedAndConnectedInstrumentName = null; //仪器名
         public static bool isSessionOpened = false;//会话是否已经开启
         public static Int32 commandSendAndWriteQueryInternal = 300;//重复  发送&读取  命令的时间间隔 ms
