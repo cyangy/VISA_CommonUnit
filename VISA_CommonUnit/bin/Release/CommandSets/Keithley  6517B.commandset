@@ -7,8 +7,8 @@
 !1		*RST		#		0		#		重置设置为默认值
 !1		:SYSTem:PREset		#		0		#		重置设置为默认值
 !1		:SYSTem:ERRor?		#		1		#		询问仪器有什么错误
-!1		*CLS;:DATA?		#		1		#		读取仪器当前值
-!1		*CLS;:MEASure?		#		1		#		读取仪器当前值
+!1		*CLS;:DATA?		#		1		#		读取仪器当前值(界面显示值,不会重新执行功能设置,只是单纯返回窗口显示的值) \n \n 最好使用此命令读取,具体说明参考   *CLS;:MEASure?   的说明
+!1		*CLS;:MEASure?		#		1		#		读取仪器当前值\n\n(重新执行一次完整功能设置后返回测量到的值\n比如测量电阻时每执行一次该命令,继电器会响一次\n说明有设置档位等动作,因此使用该命令可能得不到正确的测量值\n最好使用 DATA?命令,直接返回仪器显示的值,这样能得到真实的读数)
 !1		*CLS;:SYSTem:RNUMber:RESet		#		0		#		清空读数计数
 !1		*CLS;:FUNCtion  "VOLTage:DC"		#		0		#		设置当前功能为直流电压测量
 !1		*CLS;:VOLTage:DC::DIGits  6.5		#		0		#		设置电压测量分辨率,可在3.5-6.5(三位半-六位半)之间
@@ -20,7 +20,8 @@
 !1		*CLS;:SYSTem:ZCHeck ON		#		0		#		开启Zero-Check\n参考6517A手册  3.22.12 Zero check and zero correct commands
 !1		*CLS;:RESistance:VSControl  AUTO		#		0		#		设置电阻测量模式电压源输出为AUTO  /  MANual
 !1		*CLS; :RESistance:RANGe:AUTO ON		#		0		#		开启电阻测量自动
-!1		*CLS;:RESistance:MANual:VSOurce:OPERate ON		#		0		#		开启电压源输出 (OFF 为关闭)
+!1		*CLS;:RESistance:MANual:VSOurce:OPERate?		#		1		#		询问电压源输出状态\n参考6517A手册 3-95
+!1		*CLS;:RESistance:MANual:VSOurce:OPERate ON		#		0		#		开启电压源输出 (OFF 为关闭)\n参考6517A手册 3-95
 !1		*CLS;:SYSTem:ZCHeck OFF		#		0		#		关闭Zero-Check\n参考6517A手册  3.22.12 Zero check and zero correct commands
 !1		*CLS;:FUNCtion  "RESistance";:SYSTem:ZCHeck ON;:RESistance:VSControl  AUTO; :RESistance:RANGe:AUTO ON;:RESistance:MANual:VSOurce:OPERate ON;:SYSTem:ZCHeck OFF		#		0		#		连接好电路后一条指令执行自动量程电阻测量
 !1		*CLS; :RESistance:RANGe:UPPer 1E12		#		0		#		设置电阻量程为1E12 Ohm;\n执行该命令前必须使用命令   *CLS;:FUNCtion  "RESistance"   将仪器设置为电阻测量功能
@@ -30,6 +31,13 @@
 !1		*CLS;:SYSTem:ZCHeck ON;:SYSTem:ZCORrect:ACQuire;:SYSTem:ZCHeck OFF;:SYSTem:ZCORrect ON		#		0		#		取REL值\n参考6517A手册  3.22.12 Zero check and zero correct commands
 !1		*CLS;:FORMat:ELEMents?		#		1		#		询问仪器当前读回的数据会包含什么内容\n参考6517A手册 3.16 :FORMat subsystem 
 !1		*CLS;:FORMat:ELEMents READing,CHANnel,RNUMber,UNITs,TSTamp,STATus,HUMidity,VSOurce		#		0		#		设置仪器读回的数据要包含什么内容\n参考6517A手册 3.16 :FORMat subsystem 
+!1		*CLS;:DISPlay:WINDow1:TEXT:STATe ON;:DISPlay:WINDow1:TEXT:DATA "Hello  6517B"		#		0		#		将字符串显示到显示窗口1,\n(上面那一行是窗口1 最多20个字符,\n下面那一行是窗口2,最多32个字符)\n参考6517A手册  Table 3-6
+!1		*CLS;:DISPlay:WINDow1:TEXT:STATe ON		#		0		#		关闭自定义显示的内容，回到系统界面显示\n参考6517A手册  Table 3-6
+!1		*CLS;:DISPlay:WINDow1:TEXT:DATA?		#		1		#		询问窗口1的自定义显示内容
+!1		*CLS;:DISPlay:ENABle   ON		#		0		#		开启/关闭整个屏幕\n参考 6517A 手册 Table 3-6
+!1		*CLS;:DISPlay:ENABle?		#		1		#		询问屏幕是否开启\n参考 6517A 手册 Table 3-6
+
+
 
 
 

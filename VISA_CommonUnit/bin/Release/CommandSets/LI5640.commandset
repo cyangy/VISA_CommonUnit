@@ -1,0 +1,49 @@
+#########################严格按照格式书写,如果没有说明内容 也可写为 !1/2/3  expr  的形式，但!1/2/3必须顶格写 
+#ControlCommand#
+#########################
+#ControlCommand标识			 命令内容								           命令是否有返回信息(是:1,否0)	
+!1		*IDN?		#		1		#		仪器名称、版本等信息
+!1		*CLS		#		0		#		清除错误
+!1		*RST		#		0		#		重置仪器
+!1		FREQ?		#		1		#		返回当前仪器内部参考系统的频率
+!1		AMPL?		#		1		#		当前内部参考系统的输出量程
+!1		VSEN?		#		1		#		当前输入测量量程
+!1		ASEN		#		0		#		自动量程
+!1		OTYP 1,2,3,4,5		#		0		#		设置DOUT?返回内容\n 0 : line number \n 1:  DATA1 显示的值\n 2: DATA2显示的值\n 3: 参考信号频率\n 4: 针对输入信号的量程 \n 5: 是否超量程
+!1		KLOC 0		#		0		#		关闭按键锁定
+!1		LAMP 0		#		0		#		关闭指示灯及显示
+!1		INIT		#		0		#		初始化仪器
+!1		DDEF? 1		#		1		#		询问当前DATA1显示的是啥\n0: X\n1: R\n2: NOISE\n3: AUX IN1
+!1		DDEF? 2		#		1		#		询问当前DATA2显示的是啥\n0: Y\n1: θ\n2: AUX IN1\n3: AUX IN2
+!1		DDEF  1,0		#		0		#		设置当前DATA1显示的内容 DDEF  1,i \n0: X\n1: R\n2: NOISE\n3: AUX IN1
+!1		DDEF  2,0		#		0		#		设置当前DATA2显示的内容 DDEF  2,i \n0: Y\n1: θ\n2: AUX IN1\n3: AUX IN2
+!1		ATIM		#		0		#		自动设定时间常数
+!1		ASET		#		0		#		自动设置
+!1		ISRC 0		#		0		#		设定测量方式 \n0: A \n1: A-B \n2:I 10^6 \n3:I 10^8
+!1		RSRC 0		#		0		#		设定参考信号 \n0: REF IN\n1: INT OSC\n2: SIGNAL
+!1		OTYP 1,2,3,4,5 ; ASEN ; ATIM ; DOUT?		#		1		#		设置返回信息 12345 自动量程 自动设置时间常数然后 返回信息
+!1		*OPC?		#		1		#		上一条命令是否成功
+!1		DASC?  0 , 256		#		1		#		读取记录的数据(ASCII),实际上每次只能读回一行,参考 LI5640说明书 5-85\n DASC? 0,1 \n DASC? 1,2\n …… 
+!1		DBIN?  0 , 256		#		1		#		读取记录的数据(Binary)
+!1		SPTS?		#		1		#		已记录数据条数
+!1		STRT		#		0		#		准备记录数据
+!1		STOP		#		0		#		停止记录数据
+!1		*TRG		#		0		#		开始记录数据(或记录一条数据)
+!1		TENB 1		#		0		#		是否允许外部触发\n 0: Enable \n1: Disable
+!1		DSMP 0		#		0		#		自动记录数据的周期 \n 0: Trigger 1: 0.0625ms 2: 0.125ms\n 3: 0.25ms  4: 0.5ms  5: 1ms\n 6:  2ms 7: 5ms  8: 10ms \n9: 20ms  10: 50ms  11: 100ms\n 12: 200ms 13: 500ms 14: 1s \n 15: 2s  16: 5s  17: 10s  18: 20s
+!1		DSIZ 5		#		0		#		自动记录数据时使用的空间大小\n 0: 2K  1: 4K  2: 8K \n 3: 16K  4: 32K  5: 64K
+!1		DTYP  4		#		0		#		自动记录数据的内容\n 0: DATA1 \n1: DATA2 \n2: DATA1,DATA2 \n3: DATA2,AUX IN2\n4: DATA1,DATA2,FREQ \n5: DATA1,DATA2,AUX IN1,AUX IN2
+!1		*RST ; TENB 1 ; DSIZ 5 ; DSMP 2 ; DTYP 4 ; STRT ; *TRG		#		0		#		开始自动记录
+
+
+			
+
+##ReltiveRegexExpression##
+#########################与正则表达式相关命令  每行以 一个感叹号加2(!2)顶格开始 接空格或Tab 后面是正则表达式  接着是空格或Tab 然后一个 # 空格或tab分割后是前面表达式的说明
+#标识               正则表达式																		前面命令的说明
+!2		([A-Za-z]{7}-)|([0-9]{5})|([0-9])						#			取出7个字母加\n一个减号-的部分 \n接着往后 取出一个5位数 最后取出 一位数
+
+###ReltiveGNUCoreutilsExpression###
+#########################与 GNUCoreutils 相关命令 每行以 一个感叹号加3(!3)顶格开始 接空格或Tab 后面是GNUCoreutils命令  接着是空格或Tab 然后一个 # 空格或tab分割后是前面表达式的说明
+!3		awk -F, "{print $1 \"  \" $2}"		#		取出以逗号","为分割符的第一列 第二列，第一列和第二列之间用空格分隔				
+!3		awk -F, "{print $1 \",X,\" $2\" ,Y,\"$3\",Hz,\"$4\",\"$5}"		#		配合 命令 DDEF 1,0;DDEF 2,0\n OTYP 1,2,3,4,5;ASEN;ATIM;DOUT? \n 后显示 DATA1(X) DATA2(Y)  参考频率 量程 是否超量程 等五项信息
