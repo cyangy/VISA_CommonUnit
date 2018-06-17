@@ -99,7 +99,7 @@
             // 
             this.SessionButton_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SessionButton_panel.BackColor = System.Drawing.Color.BurlyWood;
+            this.SessionButton_panel.BackColor = System.Drawing.SystemColors.Highlight;
             this.SessionButton_panel.Controls.Add(this.Session_CurrentSelectDevice_Label);
             this.SessionButton_panel.Controls.Add(this.Session_CurrentSelectDevice_textBox);
             this.SessionButton_panel.Controls.Add(this.closeSessionButton_button);
@@ -136,10 +136,10 @@
             // SessionButton_label
             // 
             this.SessionButton_label.AutoSize = true;
-            this.SessionButton_label.BackColor = System.Drawing.Color.BurlyWood;
+            this.SessionButton_label.BackColor = System.Drawing.SystemColors.Highlight;
             this.SessionButton_label.Font = new System.Drawing.Font("宋体", 12F);
             this.SessionButton_label.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SessionButton_label.Location = new System.Drawing.Point(175, 14);
+            this.SessionButton_label.Location = new System.Drawing.Point(172, 14);
             this.SessionButton_label.Name = "SessionButton_label";
             this.SessionButton_label.Size = new System.Drawing.Size(89, 20);
             this.SessionButton_label.TabIndex = 3;
@@ -194,7 +194,7 @@
             this.commandManipulate_Response_richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.commandManipulate_Response_richTextBox.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.commandManipulate_Response_richTextBox.BackColor = System.Drawing.Color.PeachPuff;
             this.commandManipulate_Response_richTextBox.Location = new System.Drawing.Point(6, 40);
             this.commandManipulate_Response_richTextBox.Name = "commandManipulate_Response_richTextBox";
             this.commandManipulate_Response_richTextBox.Size = new System.Drawing.Size(989, 219);
@@ -224,11 +224,11 @@
             // commandManipulate_Response_Format_label
             // 
             this.commandManipulate_Response_Format_label.AutoSize = true;
-            this.commandManipulate_Response_Format_label.BackColor = System.Drawing.Color.Beige;
-            this.commandManipulate_Response_Format_label.Font = new System.Drawing.Font("宋体", 15F);
-            this.commandManipulate_Response_Format_label.Location = new System.Drawing.Point(4, 329);
+            this.commandManipulate_Response_Format_label.BackColor = System.Drawing.Color.BurlyWood;
+            this.commandManipulate_Response_Format_label.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.commandManipulate_Response_Format_label.Location = new System.Drawing.Point(6, 328);
             this.commandManipulate_Response_Format_label.Name = "commandManipulate_Response_Format_label";
-            this.commandManipulate_Response_Format_label.Size = new System.Drawing.Size(87, 25);
+            this.commandManipulate_Response_Format_label.Size = new System.Drawing.Size(69, 20);
             this.commandManipulate_Response_Format_label.TabIndex = 17;
             this.commandManipulate_Response_Format_label.Text = "格式化";
             // 
@@ -341,9 +341,10 @@
             // commandManipulate_Write_CommandStr_label
             // 
             this.commandManipulate_Write_CommandStr_label.AutoSize = true;
-            this.commandManipulate_Write_CommandStr_label.Location = new System.Drawing.Point(41, 49);
+            this.commandManipulate_Write_CommandStr_label.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.commandManipulate_Write_CommandStr_label.Location = new System.Drawing.Point(40, 49);
             this.commandManipulate_Write_CommandStr_label.Name = "commandManipulate_Write_CommandStr_label";
-            this.commandManipulate_Write_CommandStr_label.Size = new System.Drawing.Size(37, 15);
+            this.commandManipulate_Write_CommandStr_label.Size = new System.Drawing.Size(49, 20);
             this.commandManipulate_Write_CommandStr_label.TabIndex = 32;
             this.commandManipulate_Write_CommandStr_label.Text = "命令";
             // 
@@ -412,7 +413,7 @@
             this.Debug_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Debug_label.AutoSize = true;
             this.Debug_label.ForeColor = System.Drawing.Color.Red;
-            this.Debug_label.Location = new System.Drawing.Point(839, 149);
+            this.Debug_label.Location = new System.Drawing.Point(835, 149);
             this.Debug_label.Name = "Debug_label";
             this.Debug_label.Size = new System.Drawing.Size(67, 15);
             this.Debug_label.TabIndex = 37;
@@ -422,7 +423,7 @@
             // 
             this.commandManipulate_Response_Format_Substring_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.commandManipulate_Response_Format_Substring_panel.BackColor = System.Drawing.Color.Beige;
+            this.commandManipulate_Response_Format_Substring_panel.BackColor = System.Drawing.Color.BurlyWood;
             this.commandManipulate_Response_Format_Substring_panel.Controls.Add(this.commandManipulate_Response_Format_UseGNUCoreutils_comboBox);
             this.commandManipulate_Response_Format_Substring_panel.Controls.Add(this.commandManipulate_Response_Format_Substring_EndIndex_textBox);
             this.commandManipulate_Response_Format_Substring_panel.Controls.Add(this.commandManipulate_Response_Format_Substring_label_ToChar);
@@ -515,11 +516,11 @@
             // commandManipulate_Response_richTextBox_label2
             // 
             this.commandManipulate_Response_richTextBox_label2.AutoSize = true;
-            this.commandManipulate_Response_richTextBox_label2.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.commandManipulate_Response_richTextBox_label2.Font = new System.Drawing.Font("宋体", 15F);
-            this.commandManipulate_Response_richTextBox_label2.Location = new System.Drawing.Point(8, 12);
+            this.commandManipulate_Response_richTextBox_label2.BackColor = System.Drawing.Color.PeachPuff;
+            this.commandManipulate_Response_richTextBox_label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.commandManipulate_Response_richTextBox_label2.Location = new System.Drawing.Point(7, 20);
             this.commandManipulate_Response_richTextBox_label2.Name = "commandManipulate_Response_richTextBox_label2";
-            this.commandManipulate_Response_richTextBox_label2.Size = new System.Drawing.Size(112, 25);
+            this.commandManipulate_Response_richTextBox_label2.Size = new System.Drawing.Size(89, 20);
             this.commandManipulate_Response_richTextBox_label2.TabIndex = 40;
             this.commandManipulate_Response_richTextBox_label2.Text = "实时输出";
             // 
