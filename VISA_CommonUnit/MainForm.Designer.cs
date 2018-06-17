@@ -131,6 +131,7 @@
             this.Session_CurrentSelectDevice_textBox.TabIndex = 2;
             this.Session_CurrentSelectDevice_textBox.Text = "请先选择设备";
             this.Session_CurrentSelectDevice_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Session_CurrentSelectDevice_textBox.TextChanged += new System.EventHandler(this.Session_CurrentSelectDevice_textBox_TextChanged);
             // 
             // SessionButton_label
             // 
