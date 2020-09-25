@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <!--Switches-->
+  <CopyAttributes Enabled="false" />
+  <UnionDuplicates Enabled="false" />
+  <Debug Enabled="1" />
+  <Internalize Enabled="false" />
+  <MergeXml Enabled="false" />
+  <!--Signing-->
+  <Sign Enabled="false" Delay="false"></Sign>
+  <!--Logging-->
+  <Log Enabled="false"></Log>
+  <!--Assemblies-->
+  <Assemblies>
+    <Assembly>D:\Data\Github\VISA_CLI\bin\Debug\NationalInstruments.Common.dll</Assembly>
+    <Assembly>D:\Data\Github\VISA_CLI\bin\Debug\NationalInstruments.MStudioCLM.dll</Assembly>
+    <Assembly>D:\Data\Github\VISA_CLI\bin\Debug\NationalInstruments.NiLmClientDLL.dll</Assembly>
+    <Assembly>D:\Data\Github\VISA_CLI\bin\Debug\VISA_CLI.exe</Assembly>
+    <Assembly>D:\Data\Github\VISA_CLI\bin\Debug\NationalInstruments.VisaNS.dll</Assembly>
+    <Primary>D:\Data\Github\VISA_CLI\bin\Debug\VISA_CLI.exe</Primary>
+  </Assemblies>
+  <!--Output-->
+  <OutputAssembly>D:\Data\Github\VISA_CLI\bin\Debug\VISA_CLI2.exe</OutputAssembly>
+  <!--.NET Framework-->
+  <Framework>.NET Framework v4 Full</Framework>
+  <!--Merge Engine-->
+  <Engine Name="ILMerge" />
+</Settings>

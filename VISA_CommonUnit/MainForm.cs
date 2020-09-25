@@ -2,7 +2,7 @@
  * 由于使用了NI Visa，调试时使用NI I/O Trace才能捕获到信息 
  */
 
-#define DEBUG_TheVariablesOfTheControl //控件值 调试开关
+//#define DEBUG_TheVariablesOfTheControl //控件值 调试开关
 //#define DEBUG_Interface  //调试各接口类型   Gpib  Serial
 //#define Debug_CommandListAttribute    //获取commandSet中的仪器命令属性 调试开关
 //#define Debug_ControlSetPrase  //解析命令集时调试开关

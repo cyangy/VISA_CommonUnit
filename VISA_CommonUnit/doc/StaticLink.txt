@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/1868449/static-linking-of-libraries-created-on-c-sharp-net/13053351#13053351
+1¡¢Download & Install  ILMerge : https://www.microsoft.com/en-us/download/details.aspx?id=17630
+2¡¢run  https://bitbucket.org/wvd-vegt/sharpforth/downloads/
+3¡¢Add exe and dll , select exe

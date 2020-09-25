@@ -1,0 +1,6 @@
+完整安装 NI488.2(安装时选择所有项目),然后在 C:\Windows\Microsoft.NET\assembly\GAC_MSIL 查找,注意版本匹配(.NET4.0 .NET4.5)
+
+"C:\Windows\Microsoft.NET\assembly\GAC_MSIL\NationalInstruments.NiLmClientDLL"
+"C:\Windows\Microsoft.NET\assembly\GAC_MSIL\NationalInstruments.VisaNS"
+"C:\Windows\Microsoft.NET\assembly\GAC_MSIL\NationalInstruments.Common"
+"C:\Windows\Microsoft.NET\assembly\GAC_MSIL\NationalInstruments.MStudioCLM"

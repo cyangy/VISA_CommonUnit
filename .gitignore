@@ -1,7 +1,4 @@
 /.vs
 *.pfx
-/VISA_CommonUnit/bin/Release/VISA_CommonUnit.exe
-/VISA_CommonUnit/bin/Release/VISA_CommonUnit.pdb
-/VISA_CommonUnit/bin/Release/VISA_CommonUnit.exe.config
-/VISA_CommonUnit/bin/Release/NationalInstruments.VisaNS.xml
+/VISA_CommonUnit/bin/Debug/*
 /VISA_CommonUnit/obj/*
